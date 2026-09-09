@@ -1,0 +1,32 @@
+name: Edge Server CI
+
+on:
+  pull_request:
+    paths:
+      - "edge-server/**"
+      - ".github/workflows/edge-server-ci.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "edge-server/**"
+      - ".github/workflows/edge-server-ci.yml"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up Java
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: maven
+
+      - name: Test edge server
+        working-directory: edge-server
+        run: mvn -B test

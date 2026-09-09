@@ -1,0 +1,35 @@
+# macOS
+.DS_Store
+
+# IntelliJ
+.idea/
+*.iml
+out/
+
+# VS Code
+.vscode/
+
+# Java / Maven
+**/target/
+.mvn/timing.properties
+
+# Gradle
+.gradle/
+**/build/
+
+# Android
+local.properties
+*.apk
+*.aab
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# Docker volumes / local data
+.local/
+data/
